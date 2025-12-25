@@ -68,7 +68,7 @@ public class Main {
 
         System.out.println("Info about brand: " + brand2.getBrandDetails());
 
-        System.out.println("\n=== Program Complete ===\n");
+        System.out.println("=== Program Complete ===");
 
     }
 }
