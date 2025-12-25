@@ -66,7 +66,7 @@ public class Clothingitem {
     public double applyDiscount(double percentage) {
         price =  price * (1 - (percentage / 100));
         return price;
-}
+    }
     public boolean isLuxury(double price){
         return price>50000;
     }
