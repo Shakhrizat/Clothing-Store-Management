@@ -7,11 +7,10 @@ public class Customer {
 
 
     public Customer(String fullName, int id, String email, long phoneNum, String homeAddress) {
-        this.fullName = fullName;
         this.id = id;
-        this.email = email;
-        this.phoneNum = phoneNum;
-        this.homeAddress = homeAddress;
+        setFullName(fullName);
+        setEmail(email);
+        setHomeAddress();
     }
     public Customer() {
         this.id = 0;
@@ -25,7 +24,11 @@ public class Customer {
     }
 
     public void setFullName(String fullName) {
-        this.fullName = fullName;
+        if (fullName != null && !fullName.trim().isEmpty()) {
+            this.fullName = fullName;
+        } else {
+            this.fullName = "Customer, please enter your name.";
+        }
     }
 
     public int getId() {
@@ -41,7 +44,11 @@ public class Customer {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        if (email != null && !email.trim().isEmpty()) {
+            this.email = email;
+        } else {
+            this.email = "Customer, please enter your email.";
+        }
     }
 
     public long getPhoneNum() {
@@ -56,8 +63,12 @@ public class Customer {
         return homeAddress;
     }
 
-    public void setHomeAddress(String homeAddress) {
-        this.homeAddress = homeAddress;
+    public void setHomeAddress() {
+        if (homeAddress != null && !homeAddress.trim().isEmpty()) {
+            this.homeAddress = homeAddress;
+        } else {
+            this.homeAddress = "Customer, please enter your address.";
+        }
     }
 
     public void updateContactInfo(String newemail, long newphoneNumber) {

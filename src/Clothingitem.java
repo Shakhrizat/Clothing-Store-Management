@@ -1,83 +1,98 @@
-
 public class Clothingitem {
-    private int itemid;
-    private String name;
-    private double price;
-    private String size;
-    private boolean isInStock;
+    protected int itemId;
+    protected String name;
+    protected String size;
+    protected double price;
+    protected String brand;
 
-    public Clothingitem(int itemid, String name, int price, String size, boolean IsinStock) {
-        this.itemid = itemid;
-        this.name=name;
-        this.price=price;
-        this.size=size;
+
+    public Clothingitem(int itemId, String name, double price, String size ) {
+        this.itemId = itemId;
+        setName(name);
+        setSize(size);
+        setPrice(price);
     }
-    public Clothingitem() {
-        this.itemid = 0;
+
+    public void displayInfo() {
+        System.out.println("Clothing item: " + name + ", price " + price);
+    }
+    public String getCategory() {
+        return "Clothing Item";
+    }
+
+    public boolean isLuxury() {
+        return price > 20000;
+    }
+
+    public Clothingitem (){
+        this.itemId = 0;
         this.name = "Unknown Item";
         this.size = "S";
-        this.price = 0;
+        this.price = 0.0;
     }
 
-    public int getItemid() {
-        return itemid;
-    }
-
-    public void setItemid(int itemid) {
-        this.itemid = itemid;
+    public int getItemId() {
+        return itemId;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getSize() {
+        return size;
     }
 
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public String getBrand() {
+        return brand;
     }
 
-    public String getSize() {
-        return size;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
-    public void setSize(String size) {
-        this.size = size;
-    }
-
-    public void setInStock(boolean isInStock) {
-        this.isInStock = isInStock;
-    }
-    public String getStockStatus() {
-        if (isInStock) {
-            return "In stock";
+    public void setName(String name) {
+        if (name != null && !name.trim().isEmpty()) {
+            this.name = name;
         } else {
-            return "Not in stock";
+            System.out.println("Warning: Name cannot be empty!");
         }
     }
-    boolean inStock = true;
-
-    public double applyDiscount(double percentage) {
-        price =  price * (1 - (percentage / 100));
-        return price;
-    }
-    public boolean isLuxury(double price){
-        return price>50000;
+    public void setSize(String size) {
+        if (size != null && !size.isEmpty()) {
+            this.size = size;
+        } else {
+            this.size = "Warning! Choose your size!";
+        }
     }
 
+    public void setPrice(double price) {
+        if (price >= 0) {
+            this.price = price;
+        } else {
+            System.out.println("Price cannot be negative. Set to 0.");
+            this.price = 0;
+        }
+    }
+
+    public void applyDiscount(double percentage) {
+        price = price * (1 - percentage / 100);
+    }
+
+    public boolean isPremium(){
+        return price > 25000;
+    }
     @Override
     public String toString() {
-        return "ClothingItem{itemId=" + itemid +
+        return "ClothingItem{itemId=" + itemId +
                 ", name='" + name + '\'' +
                 ", size='" + size + '\'' +
                 ", price=" + price +
                 '}';
-
     }
+
 }

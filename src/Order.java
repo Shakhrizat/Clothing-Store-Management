@@ -6,18 +6,19 @@ public class Order {
     private LocalDate orderDate;
     private int totalAmount;
     private boolean isReady;
+    private String status;
 
-    public Order(int orderId, LocalDate orderDate, int totalAmount, boolean isReady) {
+    public Order(int orderId, LocalDate orderDate, int totalAmount, String status) {
         this.orderId = orderId;
-        this.orderDate = orderDate;
-        this.totalAmount = totalAmount;
-        this.isReady = isReady;
+        setOrderDate(orderDate);
+        setTotalAmount(totalAmount);
+        setStatus(status);
     }
     public Order() {
         this.orderId = 0;
         this.orderDate = LocalDate.now();
         this.totalAmount = 0;
-        this.isReady = true;
+        this.status = "Is not ready";
     }
 
     public int getOrderId() {
@@ -34,6 +35,12 @@ public class Order {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
+    }
+    public String getStatus() {
+        return status;
+    }
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getTotalAmount() {

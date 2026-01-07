@@ -24,7 +24,11 @@ public class Brand {
     }
 
     public void setBrandName(String brandName) {
-        this.brandName = brandName;
+        if (brandName != null && !brandName.isEmpty()) {
+            this.brandName = brandName;
+        } else {
+            this.brandName = "No Brand";
+        }
     }
 
     public String getCountryOfOrigin() {
