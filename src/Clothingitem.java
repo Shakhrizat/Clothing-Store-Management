@@ -4,6 +4,7 @@ public class Clothingitem {
     protected String size;
     protected double price;
     protected String brand;
+    protected int discount;
 
 
     public Clothingitem(int itemId, String name, double price, String size ) {
@@ -86,6 +87,7 @@ public class Clothingitem {
     public boolean isPremium(){
         return price > 25000;
     }
+
     @Override
     public String toString() {
         return "ClothingItem{itemId=" + itemId +

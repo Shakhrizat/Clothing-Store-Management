@@ -9,6 +9,7 @@ public class Top extends Clothingitem{
     public void displayInfo() {
         System.out.println(
                 "Top: " + name +
+                        ", size: " + size +
                         ", length: " + shoulderSize +
                         ", price: " + price
         );

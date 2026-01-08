@@ -101,7 +101,7 @@ public class Main {
         System.out.println("5. Add Order");
         System.out.println("6. View All Orders");
         System.out.println("7. Show polymorphism demo");
-        System.out.println("8. Show skirt details (instanceof demo)");
+        System.out.println("8. Show jeans details (instanceof demo)");
         System.out.println("0. Exit");
         System.out.print("Enter your choice: ");
     }
@@ -214,5 +214,6 @@ public class Main {
             System.out.println(order);
         }
     }
+
 }
 

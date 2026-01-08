@@ -8,7 +8,10 @@ public class Jeans extends Clothingitem{
 
     @Override
     public void displayInfo() {
-        System.out.println("Jeans: " + name + ", waist: " + waistSize + ", price: " + price);
+        System.out.println("Jeans: " + name +
+                ", size: " + size +
+                ", waist: " + waistSize
+                + ", price: " + price);
     }
 
     @Override
@@ -21,15 +24,19 @@ public class Jeans extends Clothingitem{
     }
 
     public boolean isLargeWaist() {
-        return waistSize >= 34;
+        return waistSize >= 80;
     }
 
-    public void ironPants() {
-        System.out.println("Jeans " + name + " are ironed.");
+    public void foldJeans() {
+        System.out.println("Jeans " + name + " are folded.");
     }
 
     public int getWaistsize() {
         this.waistSize=waistSize;
         return waistSize;
+    }
+    @Override
+    public String toString(){
+        return super.toString()+"| Waist size: "+waistSize;
     }
 }
