@@ -1,5 +1,5 @@
 public class Customer {
-    private String fullName;
+    protected String fullName;
     private int id;
     private String email;
     private long phoneNum;

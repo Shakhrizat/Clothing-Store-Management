@@ -1,5 +1,5 @@
 public class Brand {
-    private int brandId;
+    protected int brandId;
     private String brandName;
     private String countryOfOrigin;
     private double rating;

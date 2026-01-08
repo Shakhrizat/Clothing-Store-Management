@@ -2,7 +2,7 @@ import java.time.LocalDate;
 
 
 public class Order {
-    private int orderId;
+    protected int orderId;
     private LocalDate orderDate;
     private int totalAmount;
     private boolean isReady;
