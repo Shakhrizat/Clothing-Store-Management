@@ -23,7 +23,7 @@ public class Jeans extends Clothingitem{
         this.waistSize = waistSize;
     }
 
-    public boolean isLargeWaist() {
+    public boolean isWaistLarge() {
         return waistSize >= 80;
     }
 

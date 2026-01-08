@@ -4,7 +4,7 @@ public class Clothingitem {
     protected String size;
     protected double price;
     protected String brand;
-    protected int discount;
+    private int discount;
 
 
     public Clothingitem(int itemId, String name, double price, String size ) {

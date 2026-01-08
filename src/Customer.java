@@ -1,6 +1,6 @@
 public class Customer {
     protected String fullName;
-    private int id;
+    protected int id;
     private String email;
     private long phoneNum;
     private String homeAddress;

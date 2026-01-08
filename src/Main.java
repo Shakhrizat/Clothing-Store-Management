@@ -10,7 +10,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("=== Clothing Store Management System ===");
         System.out.println("This system will help you order any clothing items and organize your orders!");
-        System.out.println("It will allow adding new products, updating inventory, and viewing sales.");
+        System.out.println("It will allow adding new products, changing inventory, and viewing sales.");
         System.out.println("\n=== Clothing Store Management System ===\n");
 
         items.add(new Clothingitem(1,"Skirt", 8000, "S"));
@@ -24,8 +24,8 @@ public class Main {
         orders.add(new Order(1, LocalDate.of(2025, 10, 21), 5000, "Is ready to pick up"));
         orders.add(new Order(2, LocalDate.of(2026, 1, 3), 50000, "Pending"));
 
-        boolean running = true;
 
+        boolean running = true;
         while (running) {
             displayMenu();
             int choice = scanner.nextInt();

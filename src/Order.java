@@ -3,7 +3,7 @@ import java.time.LocalDate;
 
 public class Order {
     protected int orderId;
-    private LocalDate orderDate;
+    protected LocalDate orderDate;
     private int totalAmount;
     private boolean isReady;
     private String status;

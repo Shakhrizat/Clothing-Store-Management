@@ -19,7 +19,7 @@ public class Top extends Clothingitem{
     public String getCategory() {
         return "Top";
     }
-    public int getLengthType() {
+    public int getLength() {
         return shoulderSize;
     }
 }
