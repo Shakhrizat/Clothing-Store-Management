@@ -1,3 +1,5 @@
+package model;
+
 public class Jeans extends Clothingitem{
     private int waistSize;
 
@@ -5,6 +7,7 @@ public class Jeans extends Clothingitem{
         super(itemId, name, price, size);
         this.waistSize = waistSize;
     }
+
 
     @Override
     public void displayInfo() {

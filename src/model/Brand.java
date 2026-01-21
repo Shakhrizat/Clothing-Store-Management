@@ -1,3 +1,5 @@
+package model;
+
 public class Brand {
     protected int brandId;
     private String brandName;

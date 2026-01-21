@@ -1,10 +1,12 @@
-public class Clothingitem {
+package model;
+
+public abstract class Clothingitem implements Discountable {
     protected int itemId;
     protected String name;
     protected String size;
     protected double price;
     protected String brand;
-    private int discount;
+    protected int discount;
 
 
     public Clothingitem(int itemId, String name, double price, String size ) {

@@ -1,9 +1,11 @@
+package model;
+
 public class Customer {
     protected String fullName;
     protected int id;
-    private String email;
-    private long phoneNum;
-    private String homeAddress;
+    protected String email;
+    protected long phoneNum;
+    protected String homeAddress;
 
 
     public Customer(String fullName, int id, String email, long phoneNum, String homeAddress) {

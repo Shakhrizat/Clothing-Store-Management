@@ -1,3 +1,5 @@
+package model;
+
 public class Top extends Clothingitem{
     private int shoulderSize;
 
@@ -23,4 +25,3 @@ public class Top extends Clothingitem{
         return shoulderSize;
     }
 }
-
