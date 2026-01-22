@@ -19,7 +19,6 @@ public class MenuManager implements Menu {
         this.orders = new ArrayList<>();
         this.scanner = new Scanner(System.in);
 
-        items.add(new Jeans(2, "Classic jeans", "S", 25000, 45));
         items.add(new Top(2, "Crop Top", "S", 8000, 33));
         customers.add(new Customer("Aigul Aigul",1 , "aigul90@mail.ru", 87029784852L, "Bokenbay Batyr 3"));
         orders.add(new Order(1001, LocalDate.of(2026, 1, 20), 38000, "Pending"));
@@ -99,7 +98,7 @@ public class MenuManager implements Menu {
                         break;
                     case 0:
                         running = false;
-                        System.out.println("Goodbye!\uD83C\uDF1F");
+                        System.out.println("Goodbye!");
                         break;
                     default:
                         System.out.println("Invalid choice!");
@@ -119,13 +118,13 @@ public class MenuManager implements Menu {
             System.out.print("Name: ");
             String name = scanner.nextLine();
 
-            System.out.print("Size: ");
-            String size = scanner.nextLine();
-
             System.out.print("Price: ");
             double price = Double.parseDouble(scanner.nextLine());
 
-            Clothingitem item = new Jeans(id, name, size, price, 30);
+            System.out.print("Size: ");
+            String size = scanner.nextLine();
+
+            Clothingitem item = new Jeans(id, name, price, size, 45);
             item.applyDiscount(10);
 
             items.add(item);

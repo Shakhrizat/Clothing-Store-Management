@@ -4,14 +4,15 @@ public class Jeans extends Clothingitem{
     protected int waistSize;
     protected String fit;
 
-    public Jeans(int itemId, String name, String size, double price, int waistSize) {
+    public Jeans(int itemId, String name, double price, String size, int waistSize) {
         super(itemId, name, price, size);
         this.waistSize = waistSize;
-        setFit(fit);
     }
 
     public void setFit(String fit) {
-        if (fit == null || fit.trim().isEmpty()) throw new IllegalArgumentException("Fit should be slim/regular/large.");
+        if (fit == null || fit.trim().isEmpty()) {
+            throw new IllegalArgumentException("Fit should be slim/regular/large.");
+        }
         this.fit = fit.trim();
     }
     @Override

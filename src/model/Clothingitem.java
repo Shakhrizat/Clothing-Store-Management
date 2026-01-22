@@ -62,14 +62,14 @@ public abstract class Clothingitem implements Discountable {
     }
 
     public void setName(String name) {
-        if (name == null || !name.trim().isEmpty()) {
+        if (name == null || name.trim().isEmpty()) {
             throw new IllegalArgumentException("Name cannot be empty.");
         }
         this.name = name;
     }
 
     public void setSize(String size) {
-        if (size == null || !size.isEmpty()) {
+        if (size == null || size.isEmpty()) {
             throw new IllegalArgumentException("Size cannot be empty.");
         }
         this.size = size;
