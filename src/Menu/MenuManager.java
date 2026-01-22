@@ -8,10 +8,10 @@ import java.util.Scanner;
 
 public class MenuManager implements Menu {
 
-    private ArrayList<Clothingitem> items;
-    private ArrayList<Customer> customers;
-    private ArrayList<Order> orders;
-    private Scanner scanner;
+    protected ArrayList<Clothingitem> items;
+    protected ArrayList<Customer> customers;
+    protected ArrayList<Order> orders;
+    protected Scanner scanner;
 
     public MenuManager() {
         this.items = new ArrayList<>();
@@ -19,7 +19,7 @@ public class MenuManager implements Menu {
         this.orders = new ArrayList<>();
         this.scanner = new Scanner(System.in);
 
-        items.add(new Jeans(2, "Classic jeans", "M", 25000, 45));
+        items.add(new Jeans(2, "Classic jeans", "S", 25000, 45));
         items.add(new Top(2, "Crop Top", "S", 8000, 33));
         customers.add(new Customer("Aigul Aigul",1 , "aigul90@mail.ru", 87029784852L, "Bokenbay Batyr 3"));
         orders.add(new Order(1001, LocalDate.of(2026, 1, 20), 38000, "Pending"));

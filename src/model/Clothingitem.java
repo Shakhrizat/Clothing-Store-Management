@@ -73,7 +73,6 @@ public abstract class Clothingitem implements Discountable {
             throw new IllegalArgumentException("Size cannot be empty.");
         }
         this.size = size;
-
     }
 
     public void setPrice(double price) {

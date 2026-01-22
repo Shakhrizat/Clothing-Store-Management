@@ -1,12 +1,13 @@
 package model;
 
 public class Jeans extends Clothingitem{
-    private int waistSize;
-    private String fit;
+    protected int waistSize;
+    protected String fit;
 
     public Jeans(int itemId, String name, String size, double price, int waistSize) {
         super(itemId, name, price, size);
         this.waistSize = waistSize;
+        setFit(fit);
     }
 
     public void setFit(String fit) {
