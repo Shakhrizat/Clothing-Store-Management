@@ -19,6 +19,7 @@ public class MenuManager implements Menu {
         this.orders = new ArrayList<>();
         this.scanner = new Scanner(System.in);
 
+        items.add(new Jeans(3,"Baggy Jeans", 20000, "S", 45));
         items.add(new Top(2, "Crop Top", "S", 8000, 33));
         customers.add(new Customer("Aigul Aigul",1 , "aigul90@mail.ru", 87029784852L, "Bokenbay Batyr 3"));
         orders.add(new Order(1001, LocalDate.of(2026, 1, 20), 38000, "Pending"));
@@ -136,10 +137,5 @@ public class MenuManager implements Menu {
             System.out.println("Error: " + e.getMessage());
         }
     }
-    private Clothingitem findById(int id) {
-        for (Clothingitem item : items) {
-            if (item.getItemId() == id) return item;
-        }
-        throw new IllegalArgumentException("Item with ID " + id + " not found.");
-    }
+
 }
