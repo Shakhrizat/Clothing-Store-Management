@@ -7,8 +7,6 @@ public class Jeans extends Clothingitem{
         super(itemId, name, price, size);
         this.waistSize = waistSize;
     }
-
-
     @Override
     public void displayInfo() {
         System.out.println("Jeans: " + name +
@@ -16,30 +14,27 @@ public class Jeans extends Clothingitem{
                 ", waist: " + waistSize
                 + ", price: " + price);
     }
-
     @Override
     public String getCategory() {
         return "Jeans";
-    }
-
-    public void setWaistSize(int waistSize) {
-        this.waistSize = waistSize;
     }
 
     public boolean isWaistLarge() {
         return waistSize >= 80;
     }
 
+    @Override
     public void foldJeans() {
         System.out.println("Jeans " + name + " are folded.");
     }
 
-    public int getWaistsize() {
-        this.waistSize=waistSize;
-        return waistSize;
-    }
     @Override
     public String toString(){
         return super.toString()+"| Waist size: "+waistSize;
+    }
+
+    @Override
+    public int getLength(int shoulderSize) {
+        return 0;
     }
 }

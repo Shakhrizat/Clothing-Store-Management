@@ -1,6 +1,6 @@
 package model;
 
-public class Customer {
+public class Customer{
     protected String fullName;
     protected int id;
     protected String email;

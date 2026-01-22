@@ -1,7 +1,7 @@
 package model;
 
 public class Top extends Clothingitem{
-    private int shoulderSize;
+    protected int shoulderSize;
 
     public Top(int itemId, String name, String size, double price, int shoulderSize) {
         super(itemId, name, price, size);
@@ -21,7 +21,14 @@ public class Top extends Clothingitem{
     public String getCategory() {
         return "Top";
     }
-    public int getLength() {
+
+    @Override
+    public void foldJeans() {
+        System.out.println("Top " + name + " is folded.");
+    }
+
+    @Override
+    public int getLength(int shoulderSize) {
         return shoulderSize;
     }
 }

@@ -28,6 +28,9 @@ public class Employee {
     }
 
     public void setEmployeeName(String employeeName) {
+        if (employeeName == null || employeeName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Employee name cannot be empty");
+        }
         this.employeeName = employeeName;
     }
 
@@ -36,7 +39,10 @@ public class Employee {
     }
 
     public void setPosition(String position) {
-        this.position = position;
+        if (position == null || position.trim().isEmpty()) {
+            throw new IllegalArgumentException("Employee position cannot be empty");
+        }
+        this.position = employeeName;
     }
 
     public int getSalary() {
@@ -44,6 +50,9 @@ public class Employee {
     }
 
     public void setSalary(int salary) {
+        if (salary < 0) {
+            throw new NumberFormatException("Salary cannot be negative.");
+        }
         this.salary = salary;
     }
 
