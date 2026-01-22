@@ -16,8 +16,9 @@ public abstract class Clothingitem implements Discountable {
     }
 
     public void displayInfo() {
-        System.out.println("Clothing item: " + name + ", price " + price);
+        System.out.println("Clothing item: " + name + ", price " + price + ", size" + size);
     }
+
 
 
     public String getCategory() {
@@ -56,6 +57,7 @@ public abstract class Clothingitem implements Discountable {
     }
 
     public void setItemId(int itemId) {
+        if (itemId <= 0) throw new IllegalArgumentException("Item ID must be positive.");
         this.itemId = itemId;
     }
 

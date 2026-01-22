@@ -2,10 +2,16 @@ package model;
 
 public class Jeans extends Clothingitem{
     private int waistSize;
+    private String fit;
 
     public Jeans(int itemId, String name, String size, double price, int waistSize) {
         super(itemId, name, price, size);
         this.waistSize = waistSize;
+    }
+
+    public void setFit(String fit) {
+        if (fit == null || fit.trim().isEmpty()) throw new IllegalArgumentException("Fit should be slim/regular/large.");
+        this.fit = fit.trim();
     }
     @Override
     public void displayInfo() {

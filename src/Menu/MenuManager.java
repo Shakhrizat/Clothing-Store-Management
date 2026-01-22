@@ -68,10 +68,11 @@ public class MenuManager implements Menu {
         System.out.println("\n=== CLOTHING STORE SYSTEM ===");
         System.out.println("\n==============================");
         System.out.println("1. Add Clothing Item");
-        System.out.println("2. View All Clothing Items");
-        System.out.println("3. View Customers");
-        System.out.println("4. View Orders");
-        System.out.println("5. Polymorphism Demo");
+        System.out.println("2. Find item by ID");
+        System.out.println("3. View All Clothing Items");
+        System.out.println("4. View Customers");
+        System.out.println("5. View Orders");
+        System.out.println("6. Polymorphism Demo");
         System.out.println("0. Exit");
         System.out.print("Please enter your choice: ");
     }
@@ -103,7 +104,6 @@ public class MenuManager implements Menu {
                     default:
                         System.out.println("Invalid choice!");
                 }
-
             } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
                 scanner.nextLine();
@@ -129,12 +129,18 @@ public class MenuManager implements Menu {
             item.applyDiscount(10);
 
             items.add(item);
-            System.out.println("Item added successfully!");
+            System.out.println("Item added successfully!✅");
 
         } catch (NumberFormatException e) {
             System.out.println("Invalid number format!");
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
         }
+    }
+    private Clothingitem findById(int id) {
+        for (Clothingitem item : items) {
+            if (item.getItemId() == id) return item;
+        }
+        throw new IllegalArgumentException("Item with ID " + id + " not found.");
     }
 }
