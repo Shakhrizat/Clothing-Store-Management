@@ -33,13 +33,4 @@ public class Top extends Clothingitem{
         return "Top";
     }
 
-    @Override
-    public void foldJeans() {
-        System.out.println("Top " + name + " is folded.");
-    }
-
-    @Override
-    public int getLength(int shoulderSize) {
-        return shoulderSize;
-    }
 }

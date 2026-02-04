@@ -1,6 +1,6 @@
 package model;
 
-public abstract class Clothingitem implements Discountable {
+public class Clothingitem implements Discountable {
     protected int itemId;
     protected String name;
     protected String size;
@@ -18,7 +18,6 @@ public abstract class Clothingitem implements Discountable {
     public void displayInfo() {
         System.out.println("Clothing item: " + name + ", price " + price + ", size" + size);
     }
-
 
 
     public String getCategory() {
@@ -100,8 +99,6 @@ public abstract class Clothingitem implements Discountable {
         return price > 25000;
     }
 
-    public abstract void foldJeans();
-
     @Override
     public String toString() {
         return "ClothingItem{itemId=" + itemId +
@@ -110,6 +107,4 @@ public abstract class Clothingitem implements Discountable {
                 ", price=" + price +
                 '}';
     }
-
-    public abstract int getLength(int shoulderSize);
 }

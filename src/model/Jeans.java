@@ -31,18 +31,10 @@ public class Jeans extends Clothingitem{
         return waistSize >= 80;
     }
 
-    @Override
-    public void foldJeans() {
-        System.out.println("Jeans " + name + " are folded.");
-    }
 
     @Override
     public String toString(){
         return super.toString()+"| Waist size: "+waistSize;
     }
 
-    @Override
-    public int getLength(int shoulderSize) {
-        return 0;
-    }
 }
