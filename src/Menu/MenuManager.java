@@ -164,7 +164,7 @@ public class MenuManager implements Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("\n===  CLOTHING STORE SYSTEM ===");
+        System.out.println("\n=== \uD83C\uDF1F CLOTHING STORE SYSTEM \uD83C\uDF1F ===");
         System.out.println("1. Add Clothing Item");
         System.out.println("2. View All Clothing Items");
         System.out.println("3. Update Clothing Item");
@@ -172,8 +172,9 @@ public class MenuManager implements Menu {
         System.out.println("\n--- SEARCH AND FILTER ---");
         System.out.println("5. Search item by name.");
         System.out.println("6. Search item by price range.");
+        System.out.println("7. Filter items by minimum price.");
         System.out.println("\n--- DEMO AND OTHER ---");
-        System.out.println("7. Polymorphism Demo");
+        System.out.println("8. Polymorphism Demo");
         System.out.println("0. Exit");
         System.out.print("Please enter your choice: ");
     }
@@ -204,14 +205,17 @@ public class MenuManager implements Menu {
                         searchItemByName();
                         break;
                     case 6:
+                        searchByPriceRange();
+                        break;
+                    case 7:
                         searchItemByMaxPrice();
                         break;
                     case 8:
                         demonstratePolymorphism();
                         break;
-                    case 0:{
+                    case 0: {
                         running = false;
-                        System.out.println("Goodbye!\uD83C\uDF1F");
+                        System.out.println("Goodbye!");
                         break;
                     }
                     default:
@@ -221,6 +225,20 @@ public class MenuManager implements Menu {
             } catch (NumberFormatException e) {
                 System.out.println("Invalid number format, pls try again.");
             }
+        }
+    }
+
+    private void searchByPriceRange() {
+        try {
+            System.out.println("Enter minimum price: ");
+            double min = Double.parseDouble(scanner.nextLine());
+
+            System.out.println("Enter maximum price: ");
+            double max = Double.parseDouble(scanner.nextLine());
+
+            itemDAO.searchByPriceRange(min, max);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format");
         }
     }
 }

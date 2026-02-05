@@ -184,4 +184,71 @@ public class ClothingItemDAO {
         }
         return items;
     }
+    public void searchByPriceRange(double min, double max) {
+
+        String sql =
+                "SELECT * FROM clothing_item WHERE price BETWEEN ? AND ? ORDER BY price ASC";
+
+        Connection connection = DatabaseConnection.getConnection();
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setDouble(1, min);
+            ps.setDouble(2, max);
+
+            ResultSet rs = ps.executeQuery();
+
+            System.out.println("\n--- Items in price range ---");
+
+            boolean found = false;
+            while (rs.next()){
+                found = true;
+                System.out.println(
+                        "ID: " + rs.getInt("item_id") +
+                                ", Name: " + rs.getString("name") +
+                                ", Size: " + rs.getString("size") +
+                                ", Price: " + rs.getDouble("price") +
+                                ", Brand: " + rs.getString("brand")
+                );
+            }
+
+            rs.close();
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DatabaseConnection.closeConnection(connection);
+        }
+    }
+
+    public void filterByMinPrice(double minPrice){
+        String sql = "SELECT * FROM clothing_item WHERE price >= ?";
+        Connection connection = DatabaseConnection.getConnection();
+
+        try{
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setDouble(1, minPrice);
+
+            ResultSet rs = ps.executeQuery();
+
+            System.out.println("\n--- Items with price >=" + minPrice + " ---");
+
+            while (rs.next()){
+                System.out.println(
+                        "ID: " + rs.getInt("item_id") +
+                                ", Name: " + rs.getString("name") +
+                                ", Price: " + rs.getDouble("price") +
+                                ", Brand: " + rs.getString("brand")
+                );
+            }
+
+            rs.close();
+            ps.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally {
+            DatabaseConnection.closeConnection(connection);
+        }
+    }
 }
