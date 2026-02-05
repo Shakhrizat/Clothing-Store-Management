@@ -164,7 +164,7 @@ public class MenuManager implements Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("\n=== \uD83C\uDF1F CLOTHING STORE SYSTEM \uD83C\uDF1F ===");
+        System.out.println("\n===  CLOTHING STORE SYSTEM  ===");
         System.out.println("1. Add Clothing Item");
         System.out.println("2. View All Clothing Items");
         System.out.println("3. Update Clothing Item");
@@ -208,7 +208,7 @@ public class MenuManager implements Menu {
                         searchByPriceRange();
                         break;
                     case 7:
-                        searchItemByMaxPrice();
+                        filterByMinPrice();
                         break;
                     case 8:
                         demonstratePolymorphism();
@@ -239,6 +239,16 @@ public class MenuManager implements Menu {
             itemDAO.searchByPriceRange(min, max);
         } catch (NumberFormatException e) {
             System.out.println("Invalid number format");
+        }
+    }
+
+    private void filterByMinPrice(){
+        try {
+            System.out.println("Please enter minimum price: ");
+            double min = Double.parseDouble(scanner.nextLine());
+            itemDAO.filterByMinPrice(min);
+        }catch (NumberFormatException e){
+            System.out.println("invalid number format, please try again.");
         }
     }
 }
