@@ -164,15 +164,18 @@ public class MenuManager implements Menu {
 
     @Override
     public void displayMenu() {
-        System.out.println("\n===== CLOTHING STORE MENU =====");
-        System.out.println("1. View All Items");
-        System.out.println("2. Insert New Item");
-        System.out.println("3. Search Item by Name");
-        System.out.println("4. Delete Item by ID");
-        System.out.println("5. Search Items by Max Price");
+        System.out.println("\n===  CLOTHING STORE SYSTEM ===");
+        System.out.println("1. Add Clothing Item");
+        System.out.println("2. View All Clothing Items");
+        System.out.println("3. Update Clothing Item");
+        System.out.println("4. Delete clothing item.");
+        System.out.println("\n--- SEARCH AND FILTER ---");
+        System.out.println("5. Search item by name.");
+        System.out.println("6. Search item by price range.");
+        System.out.println("\n--- DEMO AND OTHER ---");
+        System.out.println("7. Polymorphism Demo");
         System.out.println("0. Exit");
-
-        System.out.print("Choose option: ");
+        System.out.print("Please enter your choice: ");
     }
 
     @Override
@@ -181,42 +184,42 @@ public class MenuManager implements Menu {
 
         while (running) {
             displayMenu();
-            String input = scanner.nextLine();
-
-            int choice;
             try {
-                choice = Integer.parseInt(input);
+                int choice = Integer.parseInt(scanner.nextLine());
+
+                switch (choice) {
+                    case 1:
+                        addClothingItem();
+                        break;
+                    case 2:
+                        viewAllItems();
+                        break;
+                    case 3:
+                        updateClothingItem();
+                        break;
+                    case 4:
+                        deleteClothingItem();
+                        break;
+                    case 5:
+                        searchItemByName();
+                        break;
+                    case 6:
+                        searchItemByMaxPrice();
+                        break;
+                    case 8:
+                        demonstratePolymorphism();
+                        break;
+                    case 0:{
+                        running = false;
+                        System.out.println("Goodbye!\uD83C\uDF1F");
+                        break;
+                    }
+                    default:
+                        System.out.println("Invalid input.");
+                }
+
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number.");
-                continue;
-            }
-
-            switch (choice) {
-                case 1:
-                    System.out.println("\n--- ALL CLOTHING ITEMS ---");
-                    itemDAO.getAllItems().forEach(System.out::println);
-                    break;
-
-                case 2:
-                    addClothingItem();
-                    break;
-
-                case 3:
-                    searchItemByName();
-                    break;
-
-                case 4:
-                    deleteClothingItem();
-                    break;
-                case 5:
-                    System.out.println("\n--- SEARCH BY MAX PRICE ---");
-                    searchItemByMaxPrice();
-                    break;
-                case 0:
-                    System.out.println("Exiting program... Goodbye!");
-                    return;
-
-                default: System.out.println("Invalid choice. Try again.");
+                System.out.println("Invalid number format, pls try again.");
             }
         }
     }

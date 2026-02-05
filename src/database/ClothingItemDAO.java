@@ -8,9 +8,7 @@ import java.util.List;
 public class ClothingItemDAO {
 
     public void insertClothingItem(Clothingitem item) {
-
-        String sql = "INSERT INTO \"clothing_item\" (clothing_id, name, price, size) VALUES (?, ?, ?, ?)";
-
+        String sql = "INSERT INTO \"clothing_item\" (clothing_id, name, price, size) VALUES (?,?,?,?)";
         Connection conn = DatabaseConnection.getConnection();
 
         try {
@@ -24,13 +22,13 @@ public class ClothingItemDAO {
             stmt.executeUpdate();
             System.out.println("Clothing item inserted!");
             stmt.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DatabaseConnection.closeConnection(conn);
         }
     }
+
 
     public List<Clothingitem> getAllItems() {
         List<Clothingitem> items = new ArrayList<>();
@@ -50,22 +48,17 @@ public class ClothingItemDAO {
                         rs.getString("size")
                 ));
             }
-
             rs.close();
             stmt.close();
-
-        } catch (SQLException e) {
+            } catch(SQLException e) {
             e.printStackTrace();
         } finally {
             DatabaseConnection.closeConnection(conn);
-        }
-
-        return items;
+        } return items;
     }
 
     public Clothingitem getItemById(int id) {
-
-        String sql = "SELECT * FROM \"clothing_item\" WHERE clothing_id = ?";
+        String sql = "SELECT * FROM \"clothing_item\" WHERE clothing_id=?";
         Connection conn = DatabaseConnection.getConnection();
 
         try {
@@ -84,23 +77,16 @@ public class ClothingItemDAO {
                 rs.close();
                 stmt.close();
                 return item;
-            }
-
-            rs.close();
+            } rs.close();
             stmt.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DatabaseConnection.closeConnection(conn);
-        }
-
-        return null;
+        } return null;
     }
-
     public boolean updateItem(int id, String name, int price, String size) {
-
-        String sql = "UPDATE \"clothing_item\" SET name=?, price=?, size=? WHERE clothing_id=?";
+        String sql = "UPDATE \"clothing_item\" SET name=?,price=?,size=? WHERE clothing_id=?";
         Connection conn = DatabaseConnection.getConnection();
 
         try {
@@ -115,18 +101,15 @@ public class ClothingItemDAO {
             stmt.close();
 
             return rows > 0;
-
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-
         } finally {
             DatabaseConnection.closeConnection(conn);
         }
     }
 
     public boolean deleteItem(int id) {
-
         String sql = "DELETE FROM \"clothing_item\" WHERE clothing_id=?";
         Connection conn = DatabaseConnection.getConnection();
 
@@ -138,14 +121,11 @@ public class ClothingItemDAO {
             stmt.close();
 
             return rows > 0;
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DatabaseConnection.closeConnection(conn);
-        }
-
-        return false;
+        } return false;
     }
 
     public List<Clothingitem> searchByName(String name) {
@@ -167,20 +147,14 @@ public class ClothingItemDAO {
                         rs.getInt("price"),
                         rs.getString("size")
                 ));
-            }
-
-            rs.close();
+            } rs.close();
             stmt.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             DatabaseConnection.closeConnection(conn);
-        }
-
-        return items;
+        } return items;
     }
-
     public List<Clothingitem> searchByMaxPrice(int maxPrice) {
         List<Clothingitem> items = new ArrayList<>();
         String sql = "SELECT * FROM \"clothing_item\" WHERE price <= ?";
@@ -189,11 +163,11 @@ public class ClothingItemDAO {
 
         try {
             PreparedStatement stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, maxPrice);
+            stmt.setInt(1,maxPrice);
 
             ResultSet rs = stmt.executeQuery();
 
-            while (rs.next()) {
+            while(rs.next()) {
                 items.add(new Clothingitem(
                         rs.getInt("clothing_id"),
                         rs.getString("name"),
@@ -201,16 +175,13 @@ public class ClothingItemDAO {
                         rs.getString("size")
                 ));
             }
-
-            rs.close();
-            stmt.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
+                rs.close();
+                stmt.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
             DatabaseConnection.closeConnection(conn);
         }
-
         return items;
     }
 }
